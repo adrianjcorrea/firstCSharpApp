@@ -2,7 +2,7 @@
 //printing yourName on a separate line.
 using System;
 
-namespace CalculatorApplication
+namespace GreeterApplication
 {
     class GreetYourSelf
     {
