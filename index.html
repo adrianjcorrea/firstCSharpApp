@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
+using WcfService1.Enteties;
+using System.ServiceModel.Web;
+
+namespace WcfService1
+{
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IDocuments" en el código y en el archivo de configuración a la vez.
+    [ServiceContract]
+    public interface IDocuments
+    {
+        [OperationContract]
+        [WebInvoke(
+            Method = "GET",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "/json/telepro/{param}/"
+            )]
+        clsDocuments ListDocuments(string param);
+
+        [OperationContract]
+        [WebInvoke(
+            Method = "POST",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "/json/telepro/"
+            )]
+        clsResponse saveDocument(clsDocument docInput);
+    }
+}
+
+//Documents.cs

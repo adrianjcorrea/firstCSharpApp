@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace WcfService1
+{
+    public class clsResponse
+    {
+        public string SaveDocumentResult { get; set; }
+
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace WcfService1.Enteties
+{
+    public class clsDocument
+    {
+        public string documentEncoded { get; set; }
+        public int documentType { get; set; }
+        public List<int> fileExtension { get; set; }
+        public int identifier { get; set; }
+        public string name { get; set; }
+
+    }
+
+        public class clsDocuments : List<clsDocument>
+        { }
+
+}
+//Requests

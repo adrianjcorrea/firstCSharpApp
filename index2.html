@@ -1,0 +1,62 @@
+using WcfService1.Enteties;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
+
+namespace WcfService1
+{
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Documents" en el código, en svc y en el archivo de configuración a la vez.
+    // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Documents.svc o Documents.svc.cs en el Explorador de soluciones e inicie la depuración.
+    public class Documents : IDocuments
+    {
+        public clsDocuments ListDocuments(string param)
+        {
+            clsDocuments _results = new clsDocuments()
+            { 
+                new clsDocument()
+                {
+                    documentEncoded = "Contacto del documento 1 codificado en base 64",
+                    documentType = 1,
+                    fileExtension = new List<int>() { 1, 2, 3 },
+                    identifier = 1,
+                    name = "EjemploDocumento1.zip"
+                
+                },
+                new clsDocument()
+                {
+                    documentEncoded = "Contacto del documento 1 codificado en base 64",
+                    documentType = 1,
+                    fileExtension = new List<int>() { 1, 3 },
+                    identifier = 1,
+                    name = "EjemploDocumento2.pdf"
+
+                },
+                new clsDocument()
+                {
+                    documentEncoded = "Contacto del documento 1 codificado en base 64",
+                    documentType = 1,
+                    fileExtension = new List<int>() { 2, 3 },
+                    identifier = 1,
+                    name = "EjemploDocumento1.xml"
+
+                }
+
+            };
+            return _results;
+        }
+
+        public clsResponse saveDocument(clsDocument docInput)
+        {
+            clsResponse _results = new clsResponse()
+            {
+                SaveDocumentResult = "El documento con id " + docInput.identifier + " ha sido recibido."
+            };
+
+            return _results;
+        }
+}
+}
+//Document.cvs

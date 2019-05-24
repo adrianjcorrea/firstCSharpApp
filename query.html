@@ -1,0 +1,12 @@
+use MockService;
+declare  @id int,          
+@documentEncoded varchar(50),
+@documentType varchar(50),
+@fileExtension varchar(50),
+@identifier varchar(50),
+@name varchar(50)
+
+INSERT INTO Documentos(documentEncoded, documentType, fileExtension, identifier, name)
+values(@documentEncoded, @documentType, @fileExtension, @identifier, @name)
+
+SELECT * FROM Documentos;
